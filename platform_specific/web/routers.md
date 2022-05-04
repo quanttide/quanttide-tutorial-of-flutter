@@ -6,6 +6,8 @@ outlines:
   - 为什么使用页面路由。Web平台更接近普通网页应用，方便用户通过URL访问特定页面。
   - Hash模式 vs Path模式（即History模式）
   - 使用Fluro改造路由为RESTful标准。
+notes:
+  - 小标题都还需要斟酌。
 ---
 
 # 页面路由设置
@@ -34,7 +36,7 @@ void main() {
 
 关键是`setPathUrlStrategy()`，效果等同于官方文档的方法，并且不影响Mobile和Desktop应用。
 
-## RESTful标准URL设置
+## RESTful标准设置动态路由
 
 需要路由的原因是，Web网站是以单页应用的形式上线的，要让它看起来像普通网页，可以用网址访问到具体资源，修改路由必不可少。
 

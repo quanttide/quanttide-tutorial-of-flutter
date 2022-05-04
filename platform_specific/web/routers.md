@@ -42,4 +42,7 @@ void main() {
 
 我们希望Flutter页面的表现尽可能符合[RESTful标准](https://restfulapi.net)。
 
+
 我们使用[`fluro`](https://pub.dev/packages/fluro)。
+
+[`qlevar_router`](https://pub.dev/packages/qlevar_router)作为备选。

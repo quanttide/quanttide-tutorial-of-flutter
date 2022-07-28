@@ -1,9 +1,29 @@
 ---
 author: 张果
 created_at: 2021-11-12
-updated_at: 2022-05-04
+updated_at: 2022-07-29
 ---
 # 异常处理
+
+## 理解异常信息
+
+怎么读报错信息？怎么复现报错信息？
+
+一个案例记录，之后考虑用个新案例替换。
+
+报错信息：
+
+```
+Null check operator used on a null value
+
+This error occurs when you use a bang operator (!) on a nullable instance which wasn't initialized.
+
+  CourseWidget:file:///Users/zhangguo/QuantTide/qtclass-app/qtclass-client-flutter/test/course_route_test.dart:12:47
+```
+
+其中，"12: 47" 是行数+（maybe）字符数。
+
+经过查找，错误原因是：Lectures属性实际上给了空值，!检查就会让它不通过。
 
 ## 变量作用域
 

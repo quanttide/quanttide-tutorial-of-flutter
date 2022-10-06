@@ -3,7 +3,7 @@ root: README.md
 chapters:
   - file: local_developing_tools/README.md
     sections: 
-      - file: local_developing_tools/flutter_sdk_and_android_studio.md
+      - file: local_developing_tools/android_studio.md
   - file: dart_language/README.md
     sections:
       - file: dart_language/expections.md

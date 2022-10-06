@@ -1,0 +1,44 @@
+format: jb-book
+root: README.md
+chapter:
+  - file: local_developing_tools/README.md
+    sections: 
+      - file: local_developing_tools/flutter_sdk_and_android_studio.md
+  - file: dart_language/README.md
+    sections:
+      - file: dart_language/expections.md
+      - file: dart_language/async.md
+      - file: dart_language/null_safety.md
+  - file: widgets/README.md
+    sections:
+      - file: widgets/asnyc.md
+      - file: widgets/boxconstraints.md
+      - file: widgets/slivers.md
+  - file: app/README.md
+    sections: 
+      - file: app/navigation.md
+      - file: app/assets.md
+      - file: app/font.md
+      - file: app/error.md
+  - file: testing/README.md
+    sections:
+      - file: testing/unit_testing.md
+      - file: testing/widget_testing.md
+      - file: testing/integration_test.md
+      - file: testing/debug_programmatically.md
+  - file: http/README.md
+    sections:
+      - file: http/cors.md
+  - file: responsive_and_adaptive/README.md
+    sections:
+      - file: responsive_and_adaptive/packages.md
+  - file: packages_and_plugins/README.md
+    sections:
+      - file: packages_and_plugins/versioning.md
+  - file: platform_specific/README.md
+    sections:
+      - file: platform_specific/from_mobile_to_web.md
+      - file: platform_specific/web/README.md
+        sections:
+          - file: platform_specific/web/routers.md
+          - file: platform_specific/web/deploy.md

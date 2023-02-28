@@ -18,8 +18,8 @@ export FLUTTER_GIT_URL="https://mirrors.tuna.tsinghua.edu.cn/git/flutter-sdk.git
 
 ### Windows
 
-（TODO：张玉佳补充）
-
+https://www.jianshu.com/p/73e090859342
+https://blog.csdn.net/weixin_42464713/article/details/127627621
 https://docs.flutter.dev/get-started/install/windows#update-your-path
 
 ### macOS

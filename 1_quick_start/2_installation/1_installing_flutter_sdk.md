@@ -32,6 +32,10 @@ https://docs.flutter.dev/get-started/install/macos#update-your-path
 flutter doctor
 ```
 
+```shell
+flutter devices
+```
+
 ## 参考资料
 
 - 清华大学开源软件镜像站提供的[Flutter镜像安装帮助](https://mirrors.tuna.tsinghua.edu.cn/help/flutter/)

@@ -36,6 +36,22 @@ flutter doctor
 flutter devices
 ```
 
+## 常见问题
+
+### 操作系统没有读写文件权限
+
+macOS:
+
+```shell
+sudo chown -R $(whoami) $HOME/flutter/version
+```
+
+Windows:
+
+```shell
+
+```
+
 ## 参考资料
 
 - 清华大学开源软件镜像站提供的[Flutter镜像安装帮助](https://mirrors.tuna.tsinghua.edu.cn/help/flutter/)

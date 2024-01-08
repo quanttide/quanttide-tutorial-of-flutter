@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>适配Web客户端 &#8212; Flutter教程</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=bd9e20870c6007c4c509" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=bd9e20870c6007c4c509"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'platform_specific/from_mobile_to_web';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Web端优化技巧" href="web/README.html" />
+    <link rel="prev" title="平台特定优化" href="README.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <header>
+  
+    <div class="bd-header navbar navbar-expand-lg bd-navbar">
+    </div>
+  
+  </header>
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Flutter教程</p>
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    Flutter教程
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dart_language/README.html">Dart语言</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dart_language/expections.html">异常处理</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dart_language/async.html">异步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dart_language/null_safety.html">空安全</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../widgets/README.html">组件</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../widgets/asnyc.html">异步组件</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../widgets/boxconstraints.html">BoxContraint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../widgets/slivers.html">Sliver组件</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../app/README.html">APP设置</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../app/navigation.html">导航栏</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app/assets.html">Asset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app/font.html">字体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../app/error.html">Flutter异常捕获</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../testing/README.html">测试</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/unit_testing.html">单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/widget_testing.html">组件测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/integration_test.html">集成测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debug_programmatically.html">编程调试</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../states/README.html">状态管理</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../states/bloc/README.html">BLoC</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference external" href="https://www.youtube.com/watch?v=Ep6R7U9wa0U">BLoC入门</a></li>
+<li class="toctree-l3"><a class="reference external" href="https://www.youtube.com/watch?v=rVI6IR1JiVA">BLoC实现增查删改</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../http/README.html">网络请求</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../http/cors.html">CORS策略解决方案</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../responsive_and_adaptive/README.html">响应式和自适应布局</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../responsive_and_adaptive/packages.html">响应式和自适应相关第三方库</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packages_and_plugins/README.html">定制Flutter包和插件</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packages_and_plugins/versioning.html">版本</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="README.html">平台特定优化</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">适配Web客户端</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="web/README.html">Web端优化技巧</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="web/routers.html">页面路由设置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="web/deploy.html">部署</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/platform_specific/from_mobile_to_web.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>适配Web客户端</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">构建Web目录</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flutter">Flutter版本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">编译Web平台代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">运行在Web设备上</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Flutter插件</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">响应式布局</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">页面导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">桌面端交互</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML渲染器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">调试Web应用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">打包Web应用包</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="web">
+<h1>适配Web客户端<a class="headerlink" href="#web" title="Permalink to this heading">#</a></h1>
+<p>本文主要探讨把已移动端适配的课堂APP迁移到Web应用的方式。</p>
+<p>本文主要参考2021年Flutter开发者大会的相关视频：<a class="reference external" href="https://www.bilibili.com/video/BV1Vf4y147Er/?spm_id_from=autoNext%EF%BC%8C%E5%BC%BA%E7%83%88%E5%BB%BA%E8%AE%AE%E5%BC%80%E5%8F%91%E8%80%85%E5%9C%A8%E9%80%82%E9%85%8DWeb%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%89%8D%E4%BB%94%E7%BB%86%E9%98%85%E8%AF%BB%E8%BF%99%E4%B8%AA%E8%A7%86%E9%A2%91%E3%80%82">https://www.bilibili.com/video/BV1Vf4y147Er/?spm_id_from=autoNext，强烈建议开发者在适配Web客户端前仔细阅读这个视频。</a></p>
+<p>根据官方指南，我们需要考虑以下五个方面：</p>
+<ol class="arabic simple">
+<li><p>确认使用Flutter插件是否支持Web平台；</p></li>
+<li><p>适配不同尺寸设备的响应式布局，主要是移动端Web和桌面端Web；</p></li>
+<li><p>适配页面导航；</p></li>
+<li><p>适配桌面端交互，比如滚动条、鼠标光标、键盘快捷键等；</p></li>
+<li><p>选择HTML渲染器。</p></li>
+</ol>
+<p>官方还提供了很方便的断点调试工具给开发者使用。</p>
+<section id="id1">
+<h2>构建Web目录<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<section id="flutter">
+<h3>Flutter版本<a class="headerlink" href="#flutter" title="Permalink to this heading">#</a></h3>
+<p>首先把Flutter升级到2.0版本，Flutter 2.0已经在stable分支支持Web应用构建。</p>
+<p>具体操作步骤详见<span class="xref myst">开发框架 &gt; 使用Flutter构建全平台应用</span>。</p>
+</section>
+<section id="id2">
+<h3>编译Web平台代码<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<p>如果是项目根目录只有iOS和Android代码目录，请使用<code class="docutils literal notranslate"><span class="pre">flutter</span> <span class="pre">create</span> <span class="pre">.</span></code>重新创建项目，在项目根目录中生成一个带有<code class="docutils literal notranslate"><span class="pre">index.html</span></code>的<code class="docutils literal notranslate"><span class="pre">web</span></code>代码目录。</p>
+<p>具体操作步骤详见<span class="xref myst">开发框架 &gt; 使用Flutter构建全平台应用</span>。</p>
+</section>
+<section id="id3">
+<h3>运行在Web设备上<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<p>Android Studio中，运行并选择Chrome设备，然后点击运行（Run）。如果自动打开一个Chrome浏览器并运行Flutter项目，则说明Web应用已经可以运行。</p>
+<p>具体操作步骤详见<span class="xref myst">开发框架 &gt; 使用Flutter构建全平台应用</span>。</p>
+</section>
+</section>
+<section id="id4">
+<h2>Flutter插件<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<p>检查现有Flutter依赖是否支持Web。可以在项目的Pub主页看到对平台的支持。比如</p>
+<p><img alt="Flutter插件的平台支持" src="../_images/platform_support_of_Flutter_plugins.png" /></p>
+<p>如果现有插件不支持Web平台，则需要开发者为Web实现一个联合插件（federated plugins）的platform package，详见：</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://flutter.cn/docs/development/packages-and-plugins/developing-packages#plugin-platforms">https://flutter.cn/docs/development/packages-and-plugins/developing-packages#plugin-platforms</a></p></li>
+<li><p><a class="reference external" href="https://medium.com/flutter/how-to-write-a-flutter-web-plugin-part-2-afdddb69ece6">https://medium.com/flutter/how-to-write-a-flutter-web-plugin-part-2-afdddb69ece6</a></p></li>
+</ul>
+<p>如果需要添加JavaScript代码，则在<code class="docutils literal notranslate"><span class="pre">index.html</span></code>使用导入JS库的语法导入。（TODO：具体指南待补充，包括使用场景、操作步骤等。）</p>
+</section>
+<section id="id5">
+<h2>响应式布局<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<p>修改UI代码，把一部分不适合桌面端的组件适配成可随着屏幕尺寸变化调整的响应式组件。具体操作根据具体项目确定，无固定法则。</p>
+<p>可以使用Chrome的开发者工具切换设备和尺寸来进行调试。</p>
+</section>
+<section id="id6">
+<h2>页面导航<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<p>似乎需要配置命名路由。（TODO：还不确定怎么搞是正确的打开方式。）</p>
+</section>
+<section id="id7">
+<h2>桌面端交互<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<p>添加必要的交互，比如：</p>
+<ul class="simple">
+<li><p>滚动条，比如Scrollbar；</p></li>
+<li><p>鼠标交互，比如光标（i.e. MouseRegion widget）；</p></li>
+<li><p>键盘交互，比如快捷键。</p></li>
+</ul>
+<p>Materials组件库已经提供了比较完善的支持，大部分情况下只需要简单调整成更合适的组件即可。</p>
+</section>
+<section id="html">
+<h2>HTML渲染器<a class="headerlink" href="#html" title="Permalink to this heading">#</a></h2>
+<p>大部分情况使用auto自动模式即可。</p>
+<p>Flutter提供了两种Web渲染引擎：</p>
+<ul class="simple">
+<li><p>HTML，需要的带宽更小，适合移动端</p></li>
+<li><p>CanvasKit，对大尺寸屏幕优化，适合桌面端</p></li>
+</ul>
+<p>在浏览器中检查<code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code>的<code class="docutils literal notranslate"><span class="pre">fit-render</span></code>属性，可以检查是哪个引擎渲染的。</p>
+</section>
+<section id="id8">
+<h2>调试Web应用<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<p>在Android Studio设置断点，可以在IDE和浏览器中看到返回的Web代码。</p>
+</section>
+<section id="id9">
+<h2>打包Web应用包<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<p>类似移动端应用打包，使用命令<code class="docutils literal notranslate"><span class="pre">flutter</span> <span class="pre">build</span> <span class="pre">web</span></code>即可。</p>
+</section>
+<section id="todo">
+<h2>TODO<a class="headerlink" href="#todo" title="Permalink to this heading">#</a></h2>
+<p>本文档主要根据视频以及现有使用经验整理，很多具体环节还没有经过系统尝试，无法总结出更详尽的指南，需要量潮开发者们群策群力完善文档。</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./platform_specific"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="README.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">平台特定优化</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="web/README.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Web端优化技巧</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">构建Web目录</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flutter">Flutter版本</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">编译Web平台代码</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">运行在Web设备上</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Flutter插件</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">响应式布局</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">页面导航</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">桌面端交互</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html">HTML渲染器</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">调试Web应用</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">打包Web应用包</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#todo">TODO</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 张果
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=bd9e20870c6007c4c509"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=bd9e20870c6007c4c509"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

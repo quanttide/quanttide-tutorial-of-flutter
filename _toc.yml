@@ -32,8 +32,6 @@ chapters:
         sections:
           - url: https://www.youtube.com/watch?v=Ep6R7U9wa0U
             title: BLoC入门
-          - url: https://www.youtube.com/watch?v=rVI6IR1JiVA 
-            title: BLoC实现增查删改
   - file: http/README.md
     sections:
       - file: http/cors.md
